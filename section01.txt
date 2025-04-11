@@ -1,7 +1,11 @@
+#Ex1
 int x=0, y=1;
 println("(x,y)=(",x,", ",y,")");
 println("(r,theta)=(",sqrt(sq(x)+sq(y)),", ",180*atan2(y,x)/PI,")");
 
+
+
+#Ex2
 int year=2020;
 if (year % 400 == 0){
   println(year, " is leap year");
@@ -13,6 +17,9 @@ if (year % 400 == 0){
   println(year, " is not leap year");
 }
 
+
+
+#Ex3
 float h = 1.70, w = 60;
 float bmi = w/(h*h);
 if (bmi >= 40){
@@ -29,6 +36,10 @@ if (bmi >= 40){
   println("18.5未満 低体重");
 }
 
+
+
+
+#Ex4
 int n=9;
 for (int i=0;i<n;i++){
   for (int j=0;j<n-1-i;j++){
