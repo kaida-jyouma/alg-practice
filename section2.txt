@@ -1,0 +1,28 @@
+
+
+
+#Ex6
+int[] scores = new int[]{90, 70, 100, 65, 75, 95};
+
+float mean(int[] ls){
+  float k = 0.0;
+  for (int i=0;i<ls.length;i++){
+    k += ls[i];
+  }
+  
+  return k / ls.length;
+}
+
+float variance(int[] ls){
+  float k = 0.0;
+  for (int i=0;i<ls.length;i++){
+    k += pow(ls[i], 2);
+  }
+  
+  return (k / ls.length) - pow(mean(ls), 2);
+}
+
+void setup(){
+  println("Average: ", mean(scores));
+  println("SD", sqrt(variance(scores)));
+}
