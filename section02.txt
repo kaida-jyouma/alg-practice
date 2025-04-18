@@ -70,3 +70,50 @@ void setup(){
   println("Average: ", mean(scores));
   println("SD", sqrt(variance(scores)));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Ex7
+// needed: 4*4 matrix
+void func(float[][] a, float[][] b){
+  for (int i=0;i<16;i++){
+    if (i > 0 && i%4 == 0){
+      println();
+    }
+    float k = 0.0;
+    for (int j=0;j<4;j++){
+      k += a[i/4][j] * b[j][i%4];
+    }
+    print(k, " ");
+    
+  }
+  println();
+  println();
+}
+
+void draw(){
+  float[][] a = {
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0}
+  };
+  float[][] b = {
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0},
+    {1.0, 2.0, 3.0, 4.0}
+  };
+  func(a, b);
+}
