@@ -1,14 +1,21 @@
-#Ex5
+#Ex8
 
 int [] score = {0, 90, 70, 100, 65, 75, 95};
 
 for (int i=0;i<score.length;i++){
   if (score[i]==66){
-    println(i);
+    println("index: ", i);
     break;
   }
   if (i==score.length - 1){
-    println("Nothing");
+    println("NotFound");
   }
 }
 println("Order: n");
+
+
+
+
+
+#Ex9
+
