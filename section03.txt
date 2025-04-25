@@ -19,3 +19,51 @@ println("Order: n");
 
 #Ex9
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+void setup(){
+  noLoop();
+}
+
+void draw(){
+  int target = 66;
+  ArrayList<Integer> s = new ArrayList(Arrays.asList(0, 90, 70, 100, 65, 75, 95));
+  s.add(target);
+  for (int i=0;i<s.size();i++){
+    if (s.get(i) == target && i == s.size() - 1){
+      println("NotFound");
+    }else if (s.get(i) == target){
+      println("index: ", i);
+    }
+  }
+  println("Order: n");
+}
+
+#Ex10
+
+void setup(){
+  noLoop();
+}
+
+void draw(){
+  int [] score = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+  int target = 60;
+  float start = 0.0;
+  float end = score.length - 1;
+  while (true){
+    if (target == score[ceil((end - start)/2+start)]){
+      println("index: ", end - start);
+      break;
+    }else if (target > score[ceil((end - start)/2+start)]){
+      start = ceil((end - start)/2);
+      println(start, "|", end);
+    }else{
+      end = ceil((end - start)/2);
+      println(start, "|", end);
+    }
+    break;
+  }
+  println("Order: log(n)");
+}
