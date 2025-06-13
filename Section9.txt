@@ -23,3 +23,25 @@ void draw(){
 }
 
 
+Ex25
+
+void setup(){
+  noLoop();
+}
+
+void draw(){
+  ArrayList<Integer> stack = new ArrayList<Integer>();
+  print("popped: ");
+  for (int i=0;i<7;i++){
+    if (stack.size() < 5){
+      stack.add(i + 1);
+    }else{
+      print(stack.remove(stack.size() - 1), " ");
+      stack.add(i + 1);
+    }
+  }
+  print("\nstack: ");
+  for (int i=0;i<5;i++){
+    print(stack.get(i), " ");
+  }
+}
