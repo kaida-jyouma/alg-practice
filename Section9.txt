@@ -45,3 +45,37 @@ void draw(){
     print(stack.get(i), " ");
   }
 }
+
+
+Ex26
+
+void setup(){
+  noLoop();
+}
+
+void draw(){
+  ArrayList<Integer> stack = new ArrayList<Integer>();
+  for (int i=0;i<10;i++){
+    if (i < 5){
+      stack.add(i + 1);
+    }else{
+      if (i % 2 == 0){
+        stack.remove(stack.size() - 1);
+        stack.add(0, i + 1);
+      }else{
+        stack.remove(0);
+        stack.add(i + 1);
+      }
+    }
+    print("stack", i+1, ": ");
+    for (int j=0;j<stack.size();j++){
+      print(stack.get(j), " ");
+    }
+    println();
+  }
+  println();
+  print("FINALstack: ");
+  for (int i=0;i<5;i++){
+    print(stack.get(i), " ");
+  }
+}
