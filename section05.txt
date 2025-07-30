@@ -1,0 +1,32 @@
+Ex14
+float factorial(int n){
+  float a = 1;
+  for (int i=0;i<n;i++){
+    a *= (i + 1);
+  }
+  return a;
+}
+
+float fx(float x, int n){
+  if (n == 0){
+    return 1;
+  }else{
+    return fx(x, n - 1) + pow(x, n) / factorial(n);
+  }
+}
+
+void setup(){
+  float x = 1.0;
+  boolean p = true;
+  int memory = 0;
+  for (int i=0;i<10;i++){
+    float f = fx(x, i + 1);
+    float g = abs(exp(1) - f);
+    println(i + 1, f, exp(1), g);
+    if (p && g < 0.01){
+      p = false;
+      memory = i + 1;
+    }
+  }
+  println(memory);
+}
