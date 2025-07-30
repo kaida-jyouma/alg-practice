@@ -1,0 +1,70 @@
+Ex21
+void setup(){
+  int[] score = {11, 23, 35, 44, 56, 70,  0};
+  int[] point = { 1,  2,  3,  4,  5, -1, -1};
+  
+  print("init: ");
+  int nxt = 0;
+  for (int i=0;i<score.length;i++){
+    print(score[nxt]);
+    nxt = point[nxt];
+    if (nxt < 0){
+      break;
+    }else{
+      print(" ");
+    }
+  }
+  println();
+  
+  print(" add: ");
+  score[score.length - 1] = 38;
+  nxt = 0;
+  int nxtm = 0;
+  for (int i=0;i<score.length;i++){
+    nxtm = nxt;
+    nxt = point[nxt];
+    if (score[nxt] > score[score.length - 1]){
+      point[point.length - 1] = nxt;
+      point[nxtm] = point.length - 1;
+      break;
+    }
+    if (nxt < 0){
+      break;
+    }
+  }
+  nxt = 0;
+  for (int i=0;i<score.length;i++){
+    print(score[nxt]);
+    nxt = point[nxt];
+    if (nxt < 0){
+      break;
+    }else{
+      print(" ");
+    }
+  }
+  println();
+  
+  print(" del: ");
+  nxt = 0;
+  nxtm = 0;
+  for (int i=0;i<point.length;i++){
+    nxtm = nxt;
+    nxt = point[nxt];
+    if (score[nxt] == 44){
+      nxt = point[nxt];
+      point[nxtm] = nxt;
+      break;
+    }
+  }
+  nxt = 0;
+  for (int i=0;i<score.length;i++){
+    print(score[nxt]);
+    nxt = point[nxt];
+    if (nxt < 0){
+      break;
+    }else{
+      print(" ");
+    }
+  }
+  println();
+}
