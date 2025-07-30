@@ -1,0 +1,35 @@
+Ex11
+
+void setup(){
+  noLoop();
+}
+
+int calculateSum(int n){
+  if (n == 1){
+    return 1;
+  }else{
+    return n + calculateSum(n - 1);
+  }
+}
+
+int calculateSumInLoop(int n){
+  int c = 0;
+  for (int i=0;i<n;i++){
+    c += i + 1;
+  }
+  return c;
+}
+
+
+void draw(){
+  
+  int n = 100;
+  for (int i=0;i<3;i++){
+    println(n);
+    println(calculateSumInLoop(n));
+    println(calculateSum(n));
+    n *= 10;
+    println();
+  }
+  
+}
