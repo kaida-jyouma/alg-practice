@@ -51,3 +51,74 @@ void setup(){
   }
   println();
 }
+
+
+
+
+
+
+
+
+
+
+Ex20
+// Merge Sort, Order -> nlogn, Stable Sort
+
+int[] mergesort(int[] l){
+  if (l.length <= 1){
+    return l;
+  }else{
+    int mid = floor(l.length / 2);
+    int lower[] = new int[mid];
+    int upper[] = new int[l.length - mid];
+    for (int i=0;i<l.length;i++){
+      if (i < mid){
+        lower[i] = l[i];
+      }else{
+        upper[i - mid] = l[i];
+      }
+    }
+    int los[] = mergesort(lower);
+    int ups[] = mergesort(upper);
+    return mergefunc(los, ups);
+  }
+}
+
+int[] mergefunc(int[] l, int[] r){
+  int ll = l.length;
+  int rl = r.length;
+  int llc = 0;
+  int rlc = 0;
+  int ml[] = new int[ll + rl];
+  for (int i=0;i<ml.length;i++){
+    if (l[llc] <= r[rlc]){
+      ml[i] = l[llc];
+      llc ++;
+      if (llc >= ll){
+        for (int j=0;j<rl - rlc;j++){
+          ml[i + 1 + j] = r[rlc + j];
+        }
+        break;
+      }
+    }else{
+      ml[i] = r[rlc];
+      rlc ++;
+      if (rlc >= rl){
+        for (int j=0;j<ll - llc;j++){
+          ml[i + 1 + j] = l[llc + j];
+        }
+        break;
+      }
+    }  
+  }
+  return ml;
+}
+
+void setup(){
+  int[] ls = {19, 8, 4, 16, 11, 2, 0, 3, 5, 12, 19, 18, 1, 11, 9, 0, 12, 14, 7, 17};
+  int[] a = mergesort(ls);
+  for (int i=0;i<a.length;i++){
+    print(a[i], " ");
+  }
+  println();
+}
