@@ -30,3 +30,46 @@ void setup(){
   }
   println(memory);
 }
+
+
+
+
+
+
+
+
+
+
+Ex15
+int gcd(int a, int b){
+  while (b != 0){
+    int prm = b;
+    b = a % b;
+    a = prm;
+  }
+  return a;
+}
+
+int multiGCD(int[] l){
+  int ans = l[0];
+  for (int i=1;i<l.length;i++) {
+    ans = gcd(ans, l[i]);
+  }
+  return ans;
+}
+
+void setup() {
+  int [] datalist = {98, 140, 84, 28, 42, 126};
+  println(multiGCD(datalist));
+}
+
+
+
+
+
+
+
+
+
+
+Ex16
