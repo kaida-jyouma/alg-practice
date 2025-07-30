@@ -31,5 +31,30 @@ void draw(){
     n *= 10;
     println();
   }
+
+
+
+
+
+
+
+
+Ex13
+void setup(){
+  noLoop();
+}
+
+float[] fib = new float[50];
+
+void draw(){
+  fib[0] = 1;
+  fib[1] = 1;
+  println(1, 0, fib[1]/fib[1 - 1]);
+  for (int i=2;i<50;i++){
+    fib[i] = fib[i - 1] + fib[i - 2];
+    println(i, i-1, fib[i]/fib[i - 1]);
+  }
+  println(millis() / 1000.0); // time
+}
   
 }
