@@ -1,0 +1,53 @@
+Ex19
+// Quick Sort, Order->nlogn, Unstable Sort
+
+int[] quicksort(int[] l){
+  if (l.length <= 1){
+    return l;
+  }else{
+    int over = 0;
+    int under = 0;
+    for (int i=1;i<l.length;i++){
+      if (l[i] <= l[0]){
+        under ++;
+      }else{
+        over ++;
+      }
+    }
+    int ol[] = new int[over];
+    int ul[] = new int[under];
+    int oc = 0;
+    int uc = 0;
+    for (int i=1;i<l.length;i++){
+      if (l[i] <= l[0]){
+        ul[uc] = l[i];
+        uc ++;
+      }else{
+        ol[oc] = l[i];
+        oc ++;
+      }
+    }
+    int qsol[] = quicksort(ol);
+    int qsul[] = quicksort(ul);
+    int answerList[] = new int[l.length];
+    for (int i=0;i<l.length;i++){
+      if (i < qsul.length){
+        answerList[i] = qsul[i];
+      }else if (i == qsul.length){
+        answerList[i] = l[0];
+      }else{
+        answerList[i] = qsol[i - 1 - qsul.length];
+      }
+    }
+    return answerList;
+  }
+}
+
+void setup(){
+  int[] l = {19, 8, 4, 16, 11, 2, 0, 3, 5, 12, 19, 18, 1, 11, 9, 0, 12, 14, 7, 17};
+  int[] a = quicksort(l);
+  for (int i=0;i<a.length;i++){
+    print(a[i], " ");
+  }
+  println();
+}
