@@ -68,3 +68,73 @@ void setup(){
   }
   println();
 }
+
+
+
+
+
+
+
+
+
+
+Ex22
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+void setup(){
+  LinkedList<Integer> multiList = new LinkedList<>();
+  int[] data = {11, 23, 35, 44, 56, 70, -1, -1};
+  for (int i=0;i<data.length;i++){
+    multiList.add(i, data[i]);
+  }
+  
+  print("init: ");
+  for (int i=0;i<multiList.size();i++){
+    int val = multiList.get(i);
+    if (val != -1){
+      print(val, " ");
+    }else{
+      break;
+    }
+  }
+  println();
+  
+  print(" add: ");
+  int addValue = 38;
+  for (int i=0;i<multiList.size();i++){
+    if (multiList.get(i) > addValue){
+      multiList.add(i, addValue);
+      break;
+    }
+  }
+  for (int i=0;i<multiList.size();i++){
+    int val = multiList.get(i);
+    if (val != -1){
+      print(val, " ");
+    }else{
+      break;
+    }
+  }
+  println();
+  
+  print(" del: ");
+  int delValue = 44;
+  for (int i=0;i<multiList.size();i++){
+    if (multiList.get(i) == delValue){
+      multiList.remove(i);
+      break;
+    }
+  }
+  for (int i=0;i<multiList.size();i++){
+    int val = multiList.get(i);
+    if (val != -1){
+      print(val, " ");
+    }else{
+      break;
+    }
+  }
+  println();
+}
